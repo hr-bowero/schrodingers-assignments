@@ -1,0 +1,130 @@
+---
+title: "Assignment 1"
+output: html_notebook
+---
+
+## Assignment 1
+
+**Install R on your own machine.** 
+We are Arch Linux users, so we can install these two packages:
+
++ [R](https://www.archlinux.org/packages/?name=r)
++ [rstudio-desktop-bin](https://aur.archlinux.org/packages/rstudio-desktop-bin)
+
+## Assignment 2
+
+**What is an `.r` file?**
+
+An `.r` file is a file with R code that can be run. 
+
+**What is an `.rmd` file?**
+
+An `.rmd` file is a file that stores a markdown notebook that can contain R code.
+
+## Assignment 3
+
+**Use the help function to get insights in the following functions.**
+
+### sample
+```
+help(sample)
+```
+```
+sample takes a sample of the specified size from the elements of x using either with or without replacement.
+```
+
+### replicate
+```
+help(replicate)
+```
+```
+lapply returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X.
+
+sapply is a user-friendly version and wrapper of lapply by default returning a vector, matrix or, if simplify = "array", an array if appropriate, by applying simplify2array(). sapply(x, f, simplify = FALSE, USE.NAMES = FALSE) is the same as lapply(x, f).
+
+vapply is similar to sapply, but has a pre-specified type of return value, so it can be safer (and sometimes faster) to use.
+
+replicate is a wrapper for the common use of sapply for repeated evaluation of an expression (which will usually involve random number generation).
+
+simplify2array() is the utility called from sapply() when simplify is not false and is similarly called from mapply().
+```
+
+### plot
+```
+help(plot)
+```
+```
+Generic function for plotting of R objects. For more details about the graphical parameter arguments, see par.
+
+For simple scatter plots, plot.default will be used. However, there are plot methods for many R objects, including functions, data.frames, density objects, etc. Use methods(plot) and the documentation for these.
+```
+
+### barplot
+```
+help(barplot)
+```
+```
+Creates a bar plot with vertical or horizontal bars.
+```
+
+### table
+```
+help(table)
+```
+```
+table uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels.
+```
+
+## Assignment 4
+
+**We take take a fair dice and roll it 1000 times. Write an R program that:**
+
++ **simulates throwing 1000 times with a dice**
++ **shows in a graph how many times 1, 2, 3, 4, 5 and 6 have been thrown**
+
+```{r}
+library(tidyverse)
+
+dice = seq(1, 6)
+barplot(table(sample(dice, 10000, replace = T)))
+```
+
+## Assignment 5
+
+**We throw once with three fair dices and calculate the sum of these. Make a frequency polygon that shows this experiment:**
+
+We generate a function that can do our job because we are lazy.
+
+```{r}
+dice = seq(1, 6)
+sum <- function() {
+  sample(dice, 1) + sample(dice, 1) + sample(dice, 1)
+}
+generate_plot <- function(n) {
+  barplot(table(replicate(n, sum(), simplify = T)))
+}
+```
+
+### 10 times
+
+```{r}
+generate_plot(10)
+```
+
+### 100 times
+
+```{r}
+generate_plot(100)
+```
+
+### 1000 times
+
+```{r}
+generate_plot(1000)
+```
+
+### 10000 times
+
+```{r}
+generate_plot(10000)
+```
