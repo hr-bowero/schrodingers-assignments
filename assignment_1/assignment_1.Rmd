@@ -1,6 +1,8 @@
 ---
 title: "Assignment 1"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ## Assignment 1
@@ -83,8 +85,6 @@ table uses the cross-classifying factors to build a contingency table of the cou
 + **shows in a graph how many times 1, 2, 3, 4, 5 and 6 have been thrown**
 
 ```{r}
-library(tidyverse)
-
 dice = seq(1, 6)
 barplot(table(sample(dice, 10000, replace = T)))
 ```
@@ -101,7 +101,7 @@ sum <- function() {
   sample(dice, 1) + sample(dice, 1) + sample(dice, 1)
 }
 generate_plot <- function(n) {
-  barplot(table(replicate(n, sum(), simplify = T)))
+  plot(type="b", table(replicate(n, sum(), simplify = T)))
 }
 ```
 
