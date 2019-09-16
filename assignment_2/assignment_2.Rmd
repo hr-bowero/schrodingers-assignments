@@ -1,0 +1,27 @@
+---
+  title: "Assignment 2"
+  output:
+  html_document:
+    df_print: paged
+---
+
+-----
+
+## Assignment 1
+
+## Assignment 2
+
+The chance that all 100 drivers are sober.
+
+
+```{r}
+(1-0.014)^100
+```
+
+De kans dat minstens 5% met teveel alcohol op achter het stuur zit
+
+
+```{r}
+
+
+```
