@@ -4,6 +4,8 @@ output:
   html_document:
     df_print: paged
 ---
+----
+Niek van Leeuwen en Robin Martijn
 
 ## Assignment 1
 
