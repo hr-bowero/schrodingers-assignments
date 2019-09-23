@@ -17,16 +17,16 @@ Niek van Leeuwen en Robin Martijn
 dbinom(0,25,0.04)
 ```
 
-The chance that between 1 and 5 products are defect
+*The chance that between 1 and 5 products are defect*
 
 ```{r}
 pbinom(5,25,0.04) - pbinom(1,25,0.04)
 ```
 
-Dit is niet goed
+**Dit is niet goed**
 
 ```{r}
-hist(rbinom(10000, 25, 0.04), breaks=50, col='lightblue')
+0
 ```
 
 
@@ -67,3 +67,26 @@ pbinom(0, 100, 0.014)
 dbinom(0, 23, 0.04)
 ```
 
+## Assignment 4
+
+*A reporting centre receives 15 reports per day. Calculate:*
+
++ *The chance that between 0.00 and 08.00 no reports come in*
+
+```{r}
+dpois(0, 15/3)
+```
+
++ *The chance of there being at least three hours and a maximum of six hours between two reports.*
+
+```{r}
+pexp(6, 15/24) - pexp(3, 15/24)
+```
+
+*Create a graph that compares the chance of not getting a report with the elapsed time.*
+
+```{r}
+plot(1 - pexp(0:12, 15/24), type="b")
+```
+
+## Assignment 5
