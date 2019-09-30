@@ -20,7 +20,7 @@ dbinom(0,25,0.04)
 *The chance that between 1 and 5 products are defect*
 
 ```{r}
-pbinom(5,25,0.04) - pbinom(1,25,0.04)
+pbinom(5,25,0.04) - pbinom(0,25,0.04)
 ```
 
 *A graph of the probability distribution function based on simulation*
