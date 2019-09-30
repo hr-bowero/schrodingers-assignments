@@ -23,10 +23,17 @@ dbinom(0,25,0.04)
 pbinom(5,25,0.04) - pbinom(1,25,0.04)
 ```
 
-**Dit is niet goed**
+*A graph of the probability distribution function based on simulation*
 
 ```{r}
-0
+plot(type="b", table(rbinom(100000, 25, 0.04)))
+```
+
+*A graph of the probability distribution function based on built in R functions*
+
+```{r}
+x = seq(0, 25)
+plot(type = "b", dbinom(x, 25, 0.04), xlim = c(0, 8))
 ```
 
 
@@ -90,3 +97,10 @@ plot(1 - pexp(0:12, 15/24), type="b")
 ```
 
 ## Assignment 5
+
+*At a tram stop, a tram passes every 10 minutes on average. There is no further information about the timetable in the city in question. How long do I have to wait for the tram on average from the moment I arrive at the tram stop?*
+
+```{r}
+5
+```
+
