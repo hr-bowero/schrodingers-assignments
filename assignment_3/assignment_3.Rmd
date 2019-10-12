@@ -1,0 +1,56 @@
+---
+title: "Assignment 3"
+output:
+  html_document:
+    df_print: paged
+---
+----
+Niek van Leeuwen en Robin Martijn
+
+## Assignment 1
+
+**Toon de kansdichtheidsfunctie van de lampen van type A. Plaats nuttige labels op de x- en y-assen.**
+
+```{r}
+x = seq(0, 6000)
+plot(dnorm(x, 3000, 500), type="l", xlab = "Aantal branduren", ylab = "Kans", main = "Kansdichtheidsfunctie van Type A", lwd=2)
+```
+
+**Bereken na hoeveel branduren de lampen van type A vervangen zullen worden.**
+
+```{r}
+qnorm(0.05, 3000, 500)
+```
+
+**Doe hetzelfde voor de lampen van type B**
+
+```{r}
+x = seq(0, 5000)
+plot(dnorm(x, 2500, 100), type="l", xlab = "Aantal branduren", ylab = "Kans", main = "Kansdichtheidsfunctie van Type B", lwd=2)
+
+qnorm(0.05, 2500, 100)
+```
+
+## Assignment 2
+
+**Welk periodiek onderhoud is het goedkoopst? Moet men kiezen voor lampen van type A of lampen van type B? Verklaar je antwoord met een duidelijke berekening.**
+
+```{r}
+```
+
+
+## Assignment 3
+
+**Toon de kansdichtheidsfuncties van alle types lampen in een plot. Voorwaarden:**
+
+```{r}
+x = seq(0, 6000)
+plot(dnorm(x, 3000, 500), type="l", lwd=2, ylim = c(0, 0.004), col="blue")
+lines(x, dnorm(x, 2500, 100), lwd=2, col="red")
+lines(x, dnorm(x, 4000, 700), lwd=2, col="green")
+```
+
+## Assignment 4
+
+**Laat middels een berekening zien of we de fabrikant moeten geloven, gegeven de bewerigen van de fabrikant en de resultaten van de steekproef.**
+
