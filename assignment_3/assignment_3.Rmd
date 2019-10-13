@@ -35,9 +35,44 @@ qnorm(0.05, 2500, 100)
 
 **Welk periodiek onderhoud is het goedkoopst? Moet men kiezen voor lampen van type A of lampen van type B? Verklaar je antwoord met een duidelijke berekening.**
 
+
+
 ```{r}
+
+# lamp A
+qnorm(0.05, 3000, 500)
+
+```
+Lamp A gaat 2177.573 uur mee voor de periodieke onderhoudsbeurt.
+
+```{r}
+# lamp B
+qnorm(0.05, 2500, 100)
+```
+lamp B gaat 2335.515 uur mee voor de periodieke onderhoudsbeurt.
+
+Kosten van de lampen type A per onderhoudsbeurt
+```{r}
+2 * 10000 + 40000
 ```
 
+Kosten van de lampen type B per onderhoudsbeurt
+```{r}
+2.10 * 10000 + 40000
+```
+De lampen van type B zijn per periodiek onderhoud dus 1000 euro duurder
+
+Factor van de tijd
+```{r}
+2335.515/2177.573
+```
+
+Factor van de kosten
+```{r}
+21000/20000
+```
+
+De lampen van type B gaan dus ongeveer 7 procent langer mee dan type A terwijl de lampen van type B maar 5 procent duurder zijn dan de lampen van type A.
 
 ## Assignment 3
 
@@ -50,7 +85,53 @@ lines(x, dnorm(x, 2500, 100), lwd=2, col="red")
 lines(x, dnorm(x, 4000, 700), lwd=2, col="green")
 ```
 
+Lampen van ype C
+```{r}
+qnorm(0.05, 4000, 700)
+```
+Lamp C gaat 2828.602 uur mee voor de periodieke onderhoudsbeurt.
+
+```{r}
+3 * 10000 + 40000
+```
+De kosten per onderhoudsbeurt van type C is 70 000 euro.
+
+Nu vergelijken we de lampen van type C met de lampen van type B
+
+Factor van de tijd
+```{r}
+2828.602/2335.515
+```
+
+Factor van de kosten
+```{r}
+30000/20000
+```
+
+De lampen van type C gaan dus ongeveer 21 procent langer mee dan type A terwijl de lampen van type C 50 procent duurder zijn dan de lampen van type A. Type B is dus goedkooper.
+
 ## Assignment 4
 
 **Laat middels een berekening zien of we de fabrikant moeten geloven, gegeven de bewerigen van de fabrikant en de resultaten van de steekproef.**
 
+```{r}
+
+pop=rnorm(100000,4000,700)
+
+stp=sample(pop,100,replace=T)
+mean(stp)
+
+hist(pop, col="lightblue", breaks = 50)
+
+700 / sqrt(100)
+
+x=seq(mean(stp)-3000, mean(stp)+3000, by=0.1)
+plot(x, dnorm(x,mean(stp), 700),type="l")
+
+
+x=qnorm(0.025,mean(stp),700)
+abline(v=x)
+y=qnorm(0.975,mean(stp),700)
+abline(v=y)
+abline(v=mean(pop), col = "red")
+```
